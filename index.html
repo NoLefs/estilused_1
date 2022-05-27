@@ -1,0 +1,105 @@
+<!-- #######  YAY, I AM THE SOURCE EDITOR! #########-->
+<h1 style="color: #5e9ca0;">Mario Kodut&ouml;&ouml; 6. Harjutust</h1>
+<h2 style="color: #2e6c80;">V&auml;ga tore oli neid teha :)</h2>
+<h2>1.</h2>
+<p>Harjutus 1.<br />Jooksvad tulukesed: erinevad mustrid (kitt, ring, ruut jt), kasuta ts&uuml;klit.</p>
+<p>Kood:</p>
+<table style="border-collapse: collapse; width: 80%;" border="1">
+<tbody>
+<tr>
+<td style="width: 100%;">int times = 55;<br />void setup() {<br />pinMode(3, OUTPUT);<br />pinMode(4, OUTPUT);<br />pinMode(5, OUTPUT);<br />pinMode(6, OUTPUT);<br />}<br />void loop() {<br />digitalWrite(3, LOW); // turn the green LED on pin 3 off<br />digitalWrite(4, LOW); // turn the red LED on pin 4 off<br />digitalWrite(5, HIGH); // turn the red LED on pin 5 on<br />// wait for a quarter second before changing the light<br />delay(times);<br />digitalWrite(6, HIGH);<br />digitalWrite(5, LOW);<br />delay(times);<br />digitalWrite(6, LOW);<br />digitalWrite(5, HIGH);<br />delay(times);<br />digitalWrite(4, HIGH); // turn the red LED on pin 4 on<br />digitalWrite(5, LOW); // turn the red LED on pin 5 off<br />// wait for a quarter second before changing the light<br />delay(times);<br />digitalWrite(4, LOW);<br />digitalWrite(3, HIGH);<br />delay(times);<br />digitalWrite(4, HIGH);<br />digitalWrite(3, LOW);<br />delay(times);<br />}</td>
+</tr>
+</tbody>
+</table>
+<p>Video: <a href="https://youtu.be/H2RZF7ff0E8">https://youtu.be/H2RZF7ff0E8</a></p>
+<p>&nbsp;</p>
+<h2>2.</h2>
+<p>Harjutus 7.<br />T&auml;ring &ndash; 7 segmendiline <em>display</em>.&nbsp; V&auml;ljasta Serial Monitorile tekst, mis number tuli</p>
+<p>Kood:</p>
+<table style="height: 1009px; width: 80%; border-collapse: collapse; border-style: solid;" border="1">
+<tbody>
+<tr style="height: 599px;">
+<td style="width: 100%; height: 5909px;">
+<p>int sw = 10;<br />int a = 2;<br />int b = 3;<br />int c = 4;<br />int d = 5;<br />int e = 6;<br />int f = 7;<br />int g = 8;<br />int dot = 9;<br />int num = 0;<br />int i = 0;<br />void setup()<br />{<br />pinMode(a, OUTPUT);<br />pinMode(b, OUTPUT);<br />pinMode(c, OUTPUT);<br />pinMode(d, OUTPUT);<br />pinMode(e, OUTPUT);<br />pinMode(f, OUTPUT);<br />pinMode(g, OUTPUT);<br />pinMode(dot, OUTPUT);<br />pinMode(sw, INPUT_PULLUP);<br />digitalWrite(a, HIGH);<br />digitalWrite(b, HIGH);<br />digitalWrite(c, HIGH);<br />digitalWrite(d, HIGH);<br />digitalWrite(e, HIGH);<br />digitalWrite(f, HIGH);<br />digitalWrite(g, HIGH);<br />digitalWrite(dot, HIGH);<br />}</p>
+<p>void loop()<br />{<br />delay(5000);<br />roll();<br />i = 0;<br />}<br /><br />void one() {<br />digitalWrite(a, HIGH);<br />digitalWrite(b, LOW);<br />digitalWrite(c, LOW);<br />digitalWrite(d, HIGH);<br />digitalWrite(e, HIGH);<br />digitalWrite(f, HIGH);<br />digitalWrite(g, HIGH);<br />digitalWrite(dot, HIGH);<br />}</p>
+<p>void two() {<br />digitalWrite(a, LOW);<br />digitalWrite(b, LOW);<br />digitalWrite(c, HIGH);<br />digitalWrite(d, LOW);<br />digitalWrite(e, LOW);<br />digitalWrite(f, HIGH);<br />digitalWrite(g, LOW);<br />digitalWrite(dot, HIGH);<br />}</p>
+<p>void three() {<br />digitalWrite(a, LOW);<br />digitalWrite(b, LOW);<br />digitalWrite(c, LOW);<br />digitalWrite(d, LOW);<br />digitalWrite(e, HIGH);<br />digitalWrite(f, HIGH);<br />digitalWrite(g, LOW);<br />digitalWrite(dot, HIGH);<br />}</p>
+<p>void four() {<br />digitalWrite(a, HIGH);<br />digitalWrite(b, LOW);<br />digitalWrite(c, LOW);<br />digitalWrite(d, HIGH);<br />digitalWrite(e, HIGH);<br />digitalWrite(f, LOW);<br />digitalWrite(g, LOW);<br />digitalWrite(dot, HIGH);<br />}</p>
+<p>void five() {<br />digitalWrite(a, LOW);<br />digitalWrite(b, HIGH);<br />digitalWrite(c, LOW);<br />digitalWrite(d, LOW);<br />digitalWrite(e, HIGH);<br />digitalWrite(f, LOW);<br />digitalWrite(g, LOW);<br />digitalWrite(dot, HIGH);<br />}</p>
+<p>void six() {<br />digitalWrite(a, LOW);<br />digitalWrite(b, HIGH);<br />digitalWrite(c, LOW);<br />digitalWrite(d, LOW);<br />digitalWrite(e, LOW);<br />digitalWrite(f, LOW);<br />digitalWrite(g, LOW);<br />digitalWrite(dot, HIGH);<br />}</p>
+<p>void off() {<br />digitalWrite(a, HIGH);<br />digitalWrite(b, HIGH);<br />digitalWrite(c, HIGH);<br />digitalWrite(d, HIGH);<br />digitalWrite(e, HIGH);<br />digitalWrite(f, HIGH);<br />digitalWrite(g, HIGH);<br />digitalWrite(dot, HIGH);<br />}</p>
+<p>void roll() {<br /><br />while (i &lt;= 31) {<br />i++;<br />num = random(1, 6);<br />if (i &lt;= 5) {<br />switch (num) {<br /><br />case 1:<br />one();<br />break;<br /><br />case 2:<br />two();<br />break;<br /><br />case 3:<br />three();<br />break;<br /><br />case 4:<br />four();<br />break;<br /><br />case 5:<br />five();<br />break;<br /><br />case 6:<br />six();<br />break;<br />}<br />delay(100);<br />}<br />if (i &lt;= 10) {<br />switch (num) {<br /><br />case 1:<br />one();<br />break;<br /><br />case 2:<br />two();<br />break;<br /><br />case 3:<br />three();<br />break;<br /><br />case 4:<br />four();<br />break;<br /><br />case 5:<br />five();<br />break;<br /><br />case 6:<br />six();<br />break;<br />}<br />delay(75);<br />}<br />if (i &lt;= 15) {<br />switch (num) {<br /><br />case 1:<br />one();<br />break;<br /><br />case 2:<br />two();<br />break;<br /><br />case 3:<br />three();<br />break;<br /><br />case 4:<br />four();<br />break;<br /><br />case 5:<br />five();<br />break;<br /><br />case 6:<br />six();<br />break;<br />}<br />delay(60);<br />}<br />if (i &lt;= 20) {<br />switch (num) {<br /><br />case 1:<br />one();<br />break;<br /><br />case 2:<br />two();<br />break;<br /><br />case 3:<br />three();<br />break;<br /><br />case 4:<br />four();<br />break;<br /><br />case 5:<br />five();<br />break;<br /><br />case 6:<br />six();<br />break;<br />}<br />delay(50);<br />}<br />if (i &lt;= 25) {<br />switch (num) {<br /><br />case 1:<br />one();<br />break;<br /><br />case 2:<br />two();<br />break;<br /><br />case 3:<br />three();<br />break;<br /><br />case 4:<br />four();<br />break;<br /><br />case 5:<br />five();<br />break;<br /><br />case 6:<br />six();<br />break;<br />}<br />delay(30);<br />}<br />if (i &lt;= 30) {<br />switch (num) {<br /><br />case 1:<br />one();<br />break;<br /><br />case 2:<br />two();<br />break;<br /><br />case 3:<br />three();<br />break;<br /><br />case 4:<br />four();<br />break;<br /><br />case 5:<br />five();<br />break;<br /><br />case 6:<br />six();<br />break;<br />}<br />delay(25);<br />}<br />if (i == 31) {<br />switch (num) {<br /><br />case 1:<br />one();<br />break;<br /><br />case 2:<br />two();<br />break;<br /><br />case 3:<br />three();<br />break;<br /><br />case 4:<br />four();<br />break;<br /><br />case 5:<br />five();<br />break;<br /><br />case 6:<br />six();<br />break;<br />}<br />}<br />}<br />}</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Video: <a href="https://youtu.be/-vQlq6tLZWk">https://youtu.be/-vQlq6tLZWk</a></p>
+<p>&nbsp;</p>
+<h2>3.</h2>
+<p>Harjutus 18.<br />Juhi puldi abil v&auml;hemalt kolme LED tulukest. Kuva info ka Serial Monitoris.</p>
+<p>Kood:</p>
+<table style="border-collapse: collapse; width: 80%;" border="1">
+<tbody>
+<tr>
+<td style="width: 100%;">void setup()<br />{<br />pinMode(3, OUTPUT);<br />pinMode(4, OUTPUT);<br />pinMode(5, OUTPUT);<br />Serial.begin(9600);<br />Serial.println("1- ON(1) OFF(4)");<br />Serial.println("2- ON(2) OFF(5)");<br />Serial.println("3- ON(3) OFF(6)"); <br />} <br />void loop() {<br />if (Serial.available()){int state = Serial.parseInt();<br />if (state == 1){digitalWrite(3, HIGH);<br />Serial.println("Command completed LED turned ON");<br />}<br />if (state == 2){digitalWrite(4, HIGH);<br />Serial.println("Command completed LED turned ON");<br />}<br />if (state == 3){digitalWrite(5, HIGH);<br />Serial.println("Command completed LED turned ON");<br />}<br />if (state == 4){digitalWrite(3, LOW);<br />Serial.println("Command completed LED turned OFF");<br />}<br />if (state == 5){digitalWrite(4, LOW);<br />Serial.println("Command completed LED turned OFF");<br />}<br />if (state == 6){digitalWrite(5, LOW);<br />Serial.println("Command completed LED turned OFF") ;<br />}<br />}<br />}</td>
+</tr>
+</tbody>
+</table>
+<p>Video: <a href="https://youtu.be/a_6sUArn1CM">tps://youtu.be/a_6sUArn1CM</a></p>
+<p>&nbsp;</p>
+<h2>4.</h2>
+<p>Harjutus 12.<br />LCD ekraanile t&auml;pit&auml;hed.</p>
+<p>Kood:</p>
+<table style="border-collapse: collapse; width: 80%;" border="1">
+<tbody>
+<tr>
+<td style="width: 100%;">
+<p>#include &lt;LiquidCrystal.h&gt;<br />LiquidCrystal lcd(12, 11, 5, 4, 3, 2);</p>
+<p>byte va[8] = {<br />B01010,<br />B00000,<br />B01110,<br />B00001,<br />B01111,<br />B10001,<br />B01111,<br />};</p>
+<p>byte vo[8] = {<br />B01010,<br />B00000,<br />B01110,<br />B10001,<br />B10001, <br />B10001, <br />B01110, <br />};</p>
+<p>byte sa[8] = {<br />0b01010,<br />0b00000,<br />0b01110,<br />0b10001,<br />0b11111,<br />0b10001,<br />0b10001,<br />0b00000, <br />};</p>
+<p>byte so[8] = {<br />0b01010,<br />0b01110,<br />0b10001,<br />0b10001,<br />0b10001,<br />0b10001,<br />0b01110,<br />0b00000,<br />};</p>
+<p>String message = "&Auml;&Auml;&Ouml;&Ouml;&auml;&auml;&ouml;&ouml;";<br />char TextLCD[30] = "&Auml;&Auml;&Ouml;&Ouml;&auml;&auml;&ouml;&ouml;";<br />void setup()<br />{<br />lcd.begin(16, 2);<br />lcd.createChar(1, va);<br />lcd.createChar(2, vo);<br />lcd.createChar(3, sa);<br />lcd.createChar(4, so);<br /><br />message.replace("&auml;", "\1");<br />message.replace("&ouml;", "\2");<br />message.replace("&Auml;", "\3");<br />message.replace("&Ouml;", "\4");</p>
+<p>message.toCharArray(TextLCD, 30);<br /><br /><br /><br />}</p>
+<p>void loop()<br />{<br />lcd.setCursor(0,0);<br />lcd.print(message);<br />}</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Video: <a href="https://youtu.be/SHS-x-GW9bA">e/SHS-x-GW9bA</a></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<h2>5.</h2>
+<p>Harjutus 24.<br />Tutvu lasermooduliga ja pane see t&ouml;&ouml;le, et see teeks midagi (NB! laser kahjustab silma). Kuva info ka Serial Monitoris.</p>
+<p>Kood:</p>
+<table style="border-collapse: collapse; width: 80%;" border="1">
+<tbody>
+<tr>
+<td style="width: 100%;">
+<p>void setup() {<br />// initialize serial communication at 9600 bits per second:<br />Serial.begin(9600);<br />}</p>
+<p>void loop() {<br />// reads the input on analog pin A0 (value between 0 and 1023)<br />int analogValue = analogRead(A0);</p>
+<p>Serial.print("Analog reading: ");<br />Serial.println(analogValue); // the raw analog reading<br />}</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Video: <a href="https://youtu.be/Ww1v5KgoEvE">https://youtu.be/Ww1v5KgoEvE</a></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<h2>6.</h2>
+<p>Harjutus 28.<br />Valgusfoor &ndash; (foori moodul on olemas) kui auto hakkab foorile l&auml;henema, siis kollane vilgub ja s&uuml;ttib punane. P&auml;rast ootamist n&auml;idatakse rohelist. Kuva info ka Serial Monitoris.</p>
+<p>Kood:</p>
+<table style="border-collapse: collapse; width: 80%;" border="1">
+<tbody>
+<tr>
+<td style="width: 100%;">
+<p>#define trigPin 3<br />#define echoPin 2<br />long duration;<br />int distance;</p>
+<p>void setup()<br />{<br />pinMode(trigPin, OUTPUT);<br />pinMode(echoPin, INPUT); <br />pinMode(4, OUTPUT);<br />pinMode(5, OUTPUT);<br />pinMode(6, OUTPUT);<br />Serial.begin(9600);<br />Serial.println("1- ON(1) OFF(4)");<br />Serial.println("2- ON(2) OFF(5)");<br />Serial.println("3- ON(3) OFF(6)"); <br />Serial.println("Check Distance (7)");<br />digitalWrite(4, HIGH);<br />} <br />void loop() {<br />digitalWrite(trigPin, LOW);<br />delayMicroseconds(2);<br />digitalWrite(trigPin, HIGH);<br />delayMicroseconds(10);<br />digitalWrite(trigPin, LOW);<br />duration = pulseIn(echoPin, HIGH);<br />distance = duration * 0.034 / 2;</p>
+<p>if (Serial.available()){int state = Serial.parseInt();<br />if (state == 1){digitalWrite(4, HIGH);<br />Serial.println("Red LED turned ON");<br />}<br />if (state == 2){digitalWrite(5, HIGH);<br />Serial.println("Yellow LED turned ON");<br />}<br />if (state == 3){digitalWrite(6, HIGH);<br />Serial.println("Green LED turned ON");<br />}<br />if (state == 4){digitalWrite(4, LOW);<br />Serial.println("Red LED turned OFF");<br />} <br />if (state == 5){digitalWrite(5, LOW);<br />Serial.println("Yellow LED turned OFF");<br />}<br />if (state == 6){digitalWrite(6, LOW);<br />Serial.println("Green LED turned OFF") ;<br />}<br />if (state == 7){<br />Serial.print("Distance: ");<br />Serial.print(distance);<br />Serial.println(" cm");<br />}<br />}<br />if (distance &lt; 20){<br />delay(1000);<br />digitalWrite(4, LOW);<br />delay(100);<br />digitalWrite(5, HIGH);<br />delay(1000);<br />digitalWrite(5, LOW);<br />delay(1000);<br />digitalWrite(5, HIGH);<br />delay(1000);<br />digitalWrite(5, LOW);<br />delay(200);<br />digitalWrite(6, HIGH);<br />delay(10000);<br />digitalWrite(6, LOW);<br />digitalWrite(4, HIGH);<br />}<br />}</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Video: <a href="https://youtu.be/I0FY-OcufCc">0FY-OcufCc</a></p>
+<p>&nbsp;</p>
+<p><strong>&nbsp;</strong></p>
